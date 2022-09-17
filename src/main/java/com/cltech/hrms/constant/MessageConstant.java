@@ -14,6 +14,7 @@ public class MessageConstant {
 	public static String RECORD_CREATED = "Added Successfully";
 	public static String RECORD_NULL = "null.record";
 	public static String ALL_RECORD = "All Record";
-	
+
+	public static String EXCEL_UPLOADED ="Excel File Uploaded";
 
 }

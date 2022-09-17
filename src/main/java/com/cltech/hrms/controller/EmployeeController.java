@@ -18,6 +18,7 @@ import com.cltech.hrms.bean.ResponseBean;
 import com.cltech.hrms.bean.common.DataTableRequestBean;
 import com.cltech.hrms.bean.common.GridDatatableRequestBean;
 import com.cltech.hrms.service.impl.EmployeeServiceImpl;
+import org.springframework.web.multipart.MultipartFile;
 
 @CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
@@ -74,6 +75,12 @@ public class EmployeeController {
 	@ResponseBody
 	public ResponseBean getApplicant(@RequestBody Employee employee) {
 	     return employeeService.getApplicant(employee);
+	}
+
+	@RequestMapping(value="uploadEmployeeExcel" ,method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseBean uploadEmployeeExcel(@RequestParam("file") MultipartFile file) {
+		return employeeService.uploadEmployeeExcel(file);
 	}
 	
 }

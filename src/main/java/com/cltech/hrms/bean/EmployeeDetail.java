@@ -1,6 +1,7 @@
 package com.cltech.hrms.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -61,6 +62,6 @@ public class EmployeeDetail implements Serializable {
 	private String gender;
 	
 	@Column
-	private String dob;
+	private Date dob;
 
 }

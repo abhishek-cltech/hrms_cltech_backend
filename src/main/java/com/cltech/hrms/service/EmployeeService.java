@@ -6,6 +6,7 @@ import com.cltech.hrms.bean.Employee;
 import com.cltech.hrms.bean.ResponseBean;
 import com.cltech.hrms.bean.common.DataTableRequestBean;
 import com.cltech.hrms.bean.common.GridDatatableRequestBean;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface EmployeeService {
 
@@ -27,5 +28,7 @@ public interface EmployeeService {
 	public ResponseBean saveBulkEmployee(List<Employee> employees);
 	
 	public ResponseBean getApplicant(Employee employee);
+
+	public ResponseBean uploadEmployeeExcel(MultipartFile file);
 
 }

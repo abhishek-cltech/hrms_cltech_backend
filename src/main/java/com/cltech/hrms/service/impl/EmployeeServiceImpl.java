@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
+import com.cltech.hrms.excelupload.helper.ExcelHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ import com.cltech.hrms.repository.user.UserRepository;
 import com.cltech.hrms.service.EmployeeService;
 import com.cltech.hrms.service.common.impl.BaseServiceImpl;
 import com.cltech.hrms.utility.CommonUtility;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class EmployeeServiceImpl extends BaseServiceImpl implements EmployeeService {
@@ -389,6 +391,20 @@ public class EmployeeServiceImpl extends BaseServiceImpl implements EmployeeServ
 			LOGGER.error(e.getMessage(), e);
 			return ResponseBean.builder().status(Status.FAIL).message(MessageConstant.SOMETHING_WENT_WRONG).build();
 
+		}
+	}
+
+	@Override
+	public ResponseBean uploadEmployeeExcel(MultipartFile file) {
+		try{
+			List<Employee> employees = ExcelHelper.convertExcelToEmployee(file.getInputStream());
+			for (Employee employee : employees) {
+				saveEmployee(employee);
+			}
+			return ResponseBean.builder().status(Status.SUCCESS).message(MessageConstant.EXCEL_UPLOADED).build();
+		}catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+			return ResponseBean.builder().status(Status.FAIL).message(MessageConstant.SOMETHING_WENT_WRONG).build();
 		}
 	}
 	

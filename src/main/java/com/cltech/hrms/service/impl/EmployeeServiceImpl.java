@@ -1,10 +1,7 @@
 package com.cltech.hrms.service.impl;
 
 import java.text.DecimalFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -397,16 +394,32 @@ public class EmployeeServiceImpl extends BaseServiceImpl implements EmployeeServ
 	@Override
 	public ResponseBean uploadEmployeeExcel(MultipartFile file) {
 		try{
+			Map<String, Object> erorrMap = new HashMap<>();
+			Map<String, Object> sucessMap = new HashMap<>();
+			int count=1;
 			List<Employee> employees = ExcelHelper.convertExcelToEmployee(file.getInputStream());
+
 			for (Employee employee : employees) {
-				saveEmployee(employee);
+
+				ResponseBean saveEmployee = saveEmployee(employee);
+				if(saveEmployee.getResponse()==null && saveEmployee.getStatus().equals(Status.FAIL)) {
+					erorrMap.put("row "+count, saveEmployee.getMessage());
+				}
+				else {
+					sucessMap.put("row "+count, saveEmployee.getMessage());
+				}
+				count++;
+
 			}
+			if(erorrMap!=null && erorrMap.size()>0) {
+				return ResponseBean.builder().status(Status.FAIL).response(erorrMap).message("PARTIALLY_UPDATED").build();
+			}
+
 			return ResponseBean.builder().status(Status.SUCCESS).message(MessageConstant.EXCEL_UPLOADED).build();
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 			return ResponseBean.builder().status(Status.FAIL).message(MessageConstant.SOMETHING_WENT_WRONG).build();
 		}
-	}
-	
 
+	}
 }

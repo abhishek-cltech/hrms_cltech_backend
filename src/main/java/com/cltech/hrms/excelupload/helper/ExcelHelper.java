@@ -103,168 +103,163 @@ public class ExcelHelper {
 					/* cell.setCellType(CellType.STRING); */
 					switch (cid) {
 
-					case 0:
-						employee.setCarrierObjective(cell.getStringCellValue());
-						break;
-					case 1:
-						employee.getEmployeeDetail().setFirstName(cell.getStringCellValue());
-						break;
-					case 2:
-						employee.getEmployeeDetail().setLastName(cell.getStringCellValue());
-						break;
-					case 3:
-						employee.getEmployeeDetail().setEmail(cell.getStringCellValue());
-						break;
-					case 4:
-						employee.getEmployeeDetail().setAlternateEmail(cell.getStringCellValue());
-						break;
-					case 5:
-						employee.getEmployeeDetail().setPhone(cell.getNumericCellValue() + "");
-						break;
-					case 6:
-						employee.getEmployeeDetail().setAlternatePhone(cell.getNumericCellValue() + "");
-						break;
-					case 7:
-						employee.getEmployeeDetail().setGender(cell.getStringCellValue());
-						break;
-					
-					  case 8:
-						  employee.getEmployeeDetail().setDob(cell.getDateCellValue() + "");
-					  break;
-					
-//					case 8:
-//						employee.getEmployeeDetail().setDob(cell.getStringCellValue());	
-//						break;
-					case 9:
-						employee.getEmployeeDetail().getAddreses().get(0).setAddressLine(cell.getStringCellValue());
-						break;
-					case 10:
-						employee.getEmployeeDetail().getAddreses().get(0).setCountry(cell.getStringCellValue());
-						break;
-					case 11:
-						employee.getEmployeeDetail().getAddreses().get(0).setState(cell.getStringCellValue());
-						break;
-					case 12:
-						employee.getEmployeeDetail().getAddreses().get(0).setCity(cell.getStringCellValue());
-						break;
-					case 13:
-						employee.getEmployeeDetail().getAddreses().get(0).setPincode(cell.getNumericCellValue() + "");
-						break;
-					case 14:
-						employee.getSkills().get(0).setSkillName(cell.getStringCellValue());
-						break;
-					case 15:
-						employee.getSkills().get(0).setSkillExp(cell.getNumericCellValue() + "");
-						break;
-					case 16:
-						employee.getExperiences().get(0).setJobTitle(cell.getStringCellValue());
-						break;
-					case 17:
-						employee.getExperiences().get(0).setJobDescription(cell.getStringCellValue());
-						break;
-					case 18:
-						employee.getExperiences().get(0).setOrganizationName(cell.getStringCellValue());
-						break;
-					/*
-					 * case 19:
-					 * employee.getExperiences().get(0).setStartDate(cell.getDateCellValue() + "");
-					 * break;
-					 */
-					/*
-					 * case 20: employee.getExperiences().get(0).setEndDate(cell.getDateCellValue()
-					 * + ""); break;
-					 */
-					  case 19:
-						  employee.getExperiences().get(0).setStartDate(cell.getLocalDateTimeCellValue()+"");
-					  break;
-					  case 20:
-						  employee.getExperiences().get(0).setEndDate(cell.getLocalDateTimeCellValue()+"");
-					  break;
-					case 21:
-						employee.getExperiences().get(0)
-								.setCurrentlyWorking(Boolean.parseBoolean(cell.getStringCellValue()));
-						break;
-					case 22:
-						employee.getEducations().get(0).setSchoolName(cell.getStringCellValue());
-						break;
-					case 23:
-						employee.getEducations().get(0).setDegree(cell.getStringCellValue());
-						break;
-					case 24:
-						employee.getEducations().get(0).setFieldOfStudy(cell.getStringCellValue());
-						break;
-					case 25:
-						employee.getEducations().get(0).setLocation(cell.getStringCellValue());
-						break;
-					case 26:
-						employee.getEducations().get(0).setCompletionDate(cell.getDateCellValue() + "");
-						break;
-					case 27:
-						employee.getEducations().get(0)
-								.setPassingPercentage(Double.parseDouble(cell.getNumericCellValue() + ""));
-						break;
-					case 28:
-						employee.getProjects().get(0).setProjectName(cell.getStringCellValue());
-						break;
-					case 29:
-						employee.getProjects().get(0).setProjectDescription(cell.getStringCellValue());
-						break;
-					case 30:
-						employee.getLanguages().get(0).setLanguageName(cell.getStringCellValue());
-						break;
-					case 31:
-						employee.getLanguages().get(0).setProficient(cell.getStringCellValue());
-						break;
-					case 32:
-						employee.getLanguages().get(0).setRead(Boolean.parseBoolean(cell.getBooleanCellValue() + " "));
-						break;
-					case 33:
-						employee.getLanguages().get(0).setSpeak(Boolean.parseBoolean(cell.getBooleanCellValue() + " "));
-						break;
-					case 34:
-						employee.getLanguages().get(0).setWrite(Boolean.parseBoolean(cell.getBooleanCellValue() + " "));
-						break;
-					case 35:
-						employee.setWorking(Boolean.parseBoolean(cell.getBooleanCellValue() + ""));
-						break;
-					case 36:
-						employee.setCurrentCTC(Double.parseDouble(cell.getNumericCellValue() + ""));
-						break;
-					case 37:
-						employee.setExpectedCTC(Double.parseDouble(cell.getNumericCellValue() + ""));
-						break;
-					case 38:
-						employee.setPreferedLocation(cell.getStringCellValue());
-						break;
-					case 39:
-						employee.setCertifications(cell.getStringCellValue());
-						break;
-					case 40:
-						employee.setHobbies(cell.getStringCellValue());
-						break;
-					case 41:
-						employee.setTotalSkill(cell.getStringCellValue());
-						break;
-					case 42:
-						employee.setTotalExperience(Double.parseDouble(cell.getNumericCellValue() + ""));
-						break;
-					case 43:
-						employee.getSocialMediaLinks().setGitHub(cell.getStringCellValue());
-						break;
-					case 44:
-						employee.getSocialMediaLinks().setStackOverflow(cell.getStringCellValue());
-						break;
-					case 45:
-						employee.getSocialMediaLinks().setLinkedIn(cell.getStringCellValue());
-						break;
+						case 0:
+							employee.setCarrierObjective(cell.getStringCellValue());
+							break;
+						case 1:
+							employee.getEmployeeDetail().setFirstName(cell.getStringCellValue());
+							break;
+						case 2:
+							employee.getEmployeeDetail().setLastName(cell.getStringCellValue());
+							break;
+						case 3:
+							employee.getEmployeeDetail().setEmail(cell.getStringCellValue());
+							break;
+						case 4:
+							employee.getEmployeeDetail().setAlternateEmail(cell.getStringCellValue());
+							break;
+						case 5:
+							employee.getEmployeeDetail().setPhone(cell.getNumericCellValue() + "");
+							break;
+						case 6:
+							employee.getEmployeeDetail().setAlternatePhone(cell.getNumericCellValue() + "");
+							break;
+						case 7:
+							employee.getEmployeeDetail().setGender(cell.getStringCellValue());
+							break;
+
+						case 8: employee.getEmployeeDetail().setDob(cell.getLocalDateTimeCellValue()+"");
+							break;
+						case 9:
+							employee.getEmployeeDetail().getAddreses().get(0).setAddressLine(cell.getStringCellValue());
+							break;
+						case 10:
+							employee.getEmployeeDetail().getAddreses().get(0).setCountry(cell.getStringCellValue());
+							break;
+						case 11:
+							employee.getEmployeeDetail().getAddreses().get(0).setState(cell.getStringCellValue());
+							break;
+						case 12:
+							employee.getEmployeeDetail().getAddreses().get(0).setCity(cell.getStringCellValue());
+							break;
+						case 13:
+							employee.getEmployeeDetail().getAddreses().get(0).setPincode(cell.getNumericCellValue() + "");
+							break;
+						case 14:
+							employee.getSkills().get(0).setSkillName(cell.getStringCellValue());
+							break;
+						case 15:
+							employee.getSkills().get(0).setSkillExp(cell.getNumericCellValue() + "");
+							break;
+						case 16:
+							employee.getExperiences().get(0).setJobTitle(cell.getStringCellValue());
+							break;
+						case 17:
+							employee.getExperiences().get(0).setJobDescription(cell.getStringCellValue());
+							break;
+						case 18:
+							employee.getExperiences().get(0).setOrganizationName(cell.getStringCellValue());
+							break;
+						/*
+						 * case 19:
+						 * employee.getExperiences().get(0).setStartDate(cell.getDateCellValue() + "");
+						 * break;
+						 */
+						/*
+						 * case 20: employee.getExperiences().get(0).setEndDate(cell.getDateCellValue()
+						 * + ""); break;
+						 */
+						case 19:
+							employee.getExperiences().get(0).setStartDate(cell.getLocalDateTimeCellValue()+"");
+							break;
+						case 20:
+							employee.getExperiences().get(0).setEndDate(cell.getLocalDateTimeCellValue()+"");
+							break;
+						case 21:
+							employee.getExperiences().get(0)
+									.setCurrentlyWorking(Boolean.parseBoolean(cell.getStringCellValue()));
+							break;
+						case 22:
+							employee.getEducations().get(0).setSchoolName(cell.getStringCellValue());
+							break;
+						case 23:
+							employee.getEducations().get(0).setDegree(cell.getStringCellValue());
+							break;
+						case 24:
+							employee.getEducations().get(0).setFieldOfStudy(cell.getStringCellValue());
+							break;
+						case 25:
+							employee.getEducations().get(0).setLocation(cell.getStringCellValue());
+							break;
+						case 26:
+							employee.getEducations().get(0).setCompletionDate(cell.getDateCellValue() + "");
+							break;
+						case 27:
+							employee.getEducations().get(0)
+									.setPassingPercentage(Double.parseDouble(cell.getNumericCellValue() + ""));
+							break;
+						case 28:
+							employee.getProjects().get(0).setProjectName(cell.getStringCellValue());
+							break;
+						case 29:
+							employee.getProjects().get(0).setProjectDescription(cell.getStringCellValue());
+							break;
+						case 30:
+							employee.getLanguages().get(0).setLanguageName(cell.getStringCellValue());
+							break;
+						case 31:
+							employee.getLanguages().get(0).setProficient(cell.getStringCellValue());
+							break;
+						case 32:
+							employee.getLanguages().get(0).setRead(Boolean.parseBoolean(cell.getBooleanCellValue() + " "));
+							break;
+						case 33:
+							employee.getLanguages().get(0).setSpeak(Boolean.parseBoolean(cell.getBooleanCellValue() + " "));
+							break;
+						case 34:
+							employee.getLanguages().get(0).setWrite(Boolean.parseBoolean(cell.getBooleanCellValue() + " "));
+							break;
+						case 35:
+							employee.setWorking(Boolean.parseBoolean(cell.getBooleanCellValue() + ""));
+							break;
+						case 36:
+							employee.setCurrentCTC(Double.parseDouble(cell.getNumericCellValue() + ""));
+							break;
+						case 37:
+							employee.setExpectedCTC(Double.parseDouble(cell.getNumericCellValue() + ""));
+							break;
+						case 38:
+							employee.setPreferedLocation(cell.getStringCellValue());
+							break;
+						case 39:
+							employee.setCertifications(cell.getStringCellValue());
+							break;
+						case 40:
+							employee.setHobbies(cell.getStringCellValue());
+							break;
+						case 41:
+							employee.setTotalSkill(cell.getStringCellValue());
+							break;
+						case 42:
+							employee.setTotalExperience(Double.parseDouble(cell.getNumericCellValue() + ""));
+							break;
+						case 43:
+							employee.getSocialMediaLinks().setGitHub(cell.getStringCellValue());
+							break;
+						case 44:
+							employee.getSocialMediaLinks().setStackOverflow(cell.getStringCellValue());
+							break;
+						case 45:
+							employee.getSocialMediaLinks().setLinkedIn(cell.getStringCellValue());
+							break;
 //					  case 46:
 //						  employee.getPosts().get(0).setDepartmentId((long)cell.getNumericCellValue());
 //					  break;
-					case 46:
-						employee.getPosts().get(0).setDepartmentName(cell.getStringCellValue());
-						break;
-					default:
-						break;
+						case 46:
+							employee.getPosts().get(0).setDepartmentName(cell.getStringCellValue());
+							break;
+						default:
+							break;
 					}
 					cid++;
 				}

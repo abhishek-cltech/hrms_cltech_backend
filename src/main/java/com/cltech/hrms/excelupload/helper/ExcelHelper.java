@@ -128,7 +128,8 @@ public class ExcelHelper {
 						employee.getEmployeeDetail().setGender(cell.getStringCellValue());
 						break;
 					
-					  case 8: employee.getEmployeeDetail().setDob(cell.getDateCellValue());
+					  case 8:
+						  employee.getEmployeeDetail().setDob(cell.getDateCellValue() + "");
 					  break;
 					
 //					case 8:
@@ -174,10 +175,10 @@ public class ExcelHelper {
 					 * + ""); break;
 					 */
 					  case 19:
-						  employee.getExperiences().get(0).setStartDate(cell.getStringCellValue());
+						  employee.getExperiences().get(0).setStartDate(cell.getLocalDateTimeCellValue()+"");
 					  break;
 					  case 20:
-						  employee.getExperiences().get(0).setEndDate(cell.getStringCellValue());
+						  employee.getExperiences().get(0).setEndDate(cell.getLocalDateTimeCellValue()+"");
 					  break;
 					case 21:
 						employee.getExperiences().get(0)

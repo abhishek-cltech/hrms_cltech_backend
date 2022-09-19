@@ -5,7 +5,7 @@ target/classes/config/application-dev.properties
 target/
 src/main/resources/config/application-dev.properties
 src/main/resources/config
-
+/target/
 # Compiled class file
 *.class
 

@@ -243,6 +243,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 			+ "Order BY e.createdDt "
 			+ "DESC"
 			)
-	       public List<EmployeeBean> getApplicant(String email);
+	       public List<EmployeeBean> getApplicant(@Param("email") String email);
 	
 }

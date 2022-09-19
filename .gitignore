@@ -27,3 +27,4 @@ src/main/resources/config/application-dev.properties
 target/classes/config/application-dev.properties
 .idea
 target/
+src/main/resources/config/application-dev.properties

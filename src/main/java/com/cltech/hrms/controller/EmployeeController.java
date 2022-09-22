@@ -3,15 +3,7 @@ package com.cltech.hrms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.cltech.hrms.bean.Employee;
 import com.cltech.hrms.bean.ResponseBean;
@@ -28,6 +20,10 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeServiceImpl employeeService;
 
+	@GetMapping("/test")
+	public String testApi(){
+		return "Api Test Success..";
+	}
 	@PostMapping(path = "saveEmployee")
 	@ResponseBody
 	public ResponseBean saveEmployee(@RequestBody Employee employee) {
@@ -40,7 +36,7 @@ public class EmployeeController {
 	     return employeeService.updateEmployee(employee);
 	}
 
-	@PostMapping(path = "/getAllEmployee")
+	@PostMapping(path = "getAllEmployee")
 	public ResponseBean getAllEmployee(@RequestBody GridDatatableRequestBean gridDatatableRequestBean) {
 		return employeeService.getAllEmployee(gridDatatableRequestBean);
 	}
@@ -53,10 +49,10 @@ public class EmployeeController {
 
 	@RequestMapping(path ="/getEmployeeById/{ID}" )
 	public ResponseBean getEmployeeById(@PathVariable("ID") Long id) {
-		 return employeeService.getEmployeeById(id);
+		return employeeService.getEmployeeById(id);
 	}
 
-	@PostMapping(path = "/getAllEmployeesForAdmin")
+	@PostMapping(path = "getAllEmployeesForAdmin")
 	public ResponseBean getAllEmployeesForAdmin(@RequestBody DataTableRequestBean dataTableRequestBean) {
 		return employeeService.getAllEmployeesForAdmin(dataTableRequestBean);
 	}
@@ -74,7 +70,7 @@ public class EmployeeController {
 	@PostMapping(path = "getApplicant")
 	@ResponseBody
 	public ResponseBean getApplicant(@RequestBody Employee employee) {
-	     return employeeService.getApplicant(employee);
+		return employeeService.getApplicant(employee);
 	}
 
 	@RequestMapping(value="uploadEmployeeExcel" ,method = RequestMethod.POST)

@@ -48,7 +48,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 			+ "e.id IN :departmentsIds  "
 			//+ "OR "
 			//+ "(:departmentsIds is not null OR p.departmentId in:departmentsIds) "
-     		+"GROUP BY e.id"
+//     		+"GROUP BY e.id"
 			
 			)
 	   public List<EmployeeBean> getAllEmployees(@Param("query") String query, @Param("departmentsIds") List<Long> departmentsIds, Pageable page);
@@ -117,7 +117,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 		    +"e.lookingFor LIKE CONCAT('%',:query,'%') "
 		    + "OR "
   		    +"CONCAT(e.totalExperience, '') LIKE %:query%  "
-   		    +"GROUP BY e.id"
+//   		    +"GROUP BY e.id"
 			)
 	   public List<EmployeeBean> getAllEmployeesForAdmin(@Param("query") String query, Pageable page);
 	
@@ -181,7 +181,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 		    +"e.lookingFor LIKE CONCAT('%',:query,'%') "
 		    + "OR "
  		    +"CONCAT(e.totalExperience, '') LIKE %:query% ) "
-  		    +"GROUP BY e.id"
+//  		    +"GROUP BY e.id"
 			)
 	   public List<EmployeeBean> getAllSelectedApplicantReport(@Param("query") String query, Pageable page,@Param("status") String status);
 	

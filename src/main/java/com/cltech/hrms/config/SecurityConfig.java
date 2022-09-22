@@ -24,6 +24,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class SecurityConfig {
 
 	public static final String[] PUBLIC_URL= {
+            "/employee/test",
             "/authentication/**",
             "/employee/**",
             "/department/**",

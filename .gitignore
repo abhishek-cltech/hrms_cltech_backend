@@ -36,3 +36,4 @@ target/classes/config/application-dev.properties
 target/classes/config/application-uat.properties
 target/classes/config/application-dev.properties
 target/classes/config/application-uat.properties
+pom.xml
